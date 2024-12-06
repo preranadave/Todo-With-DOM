@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>My To-Do List</h1>
+    <div class="todo-container">
+      <div class="input-container">
+        <input
+          type="text"
+          id="new-task"
+          class="new-task-input"
+          placeholder="Add a new task..."
+        />
+        <button id="add-task" class="add-task-btn" onclick="">Add Task</button>
+      </div>
+      <ul class="todo-list">
+        <!-- <li class="todo-item">
+          <input type="checkbox" id="item1" class="checkbox" />
+          <label for="item1">Buy groceries</label>
+        </li> -->
+      </ul>
+    </div>
+    <script>
+      let inpuElem = document.getElementById("new-task");
+      let addBtn = document.querySelector(".add-task-btn");
+      let todoList = document.querySelector(".todo-list");
+      const addTask = () => {
+        // console.log(inpuElem.value);
+
+        let newLiElement = document.createElement("li");
+        newLiElement.classList.add("todo-item");
+        let newLabelElement = document.createElement("label");
+        newLabelElement.textContent = inpuElem.value;
+            // let newCheckBoxElement = document.createElement("input");
+            // newCheckBoxElement.type = "checkbox";
+            // newCheckBoxElement.classList.add("checkbox");
+            // newLiElement.append(newCheckBoxElement);
+        newLiElement.append(newLabelElement);
+        todoList.append(newLiElement);
+      };
+      addBtn.addEventListener("click", () => {
+        addTask();
+        inpuElem.value = "";
+      });
+      todoList.addEventListener("click", (event) => {
+        //to remove currently clicked item
+        let removeli = event.target;
+        removeli.remove();
+      });
+    </script>
+  </body>
+</html>

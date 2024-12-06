@@ -1,0 +1,171 @@
+/* Vintage sticky note effect */
+@import url('https://fonts.googleapis.com/css2?family=Georgia&family=Bebas+Neue&display=swap');
+
+/* General body styles */
+body {
+    font-family: 'Georgia', serif; /* Classic serif font for body */
+    color: #3b3b3b; /* Deep gray text for vintage feel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    background-color: #f5f5f5; /* Light gray background to enhance sticky note effect */
+
+    background-color: #ffd9b0;
+background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+/* Main container - sticky note effect */
+.todo-container {
+    background: #fdf7e1; /* Soft vintage yellow for sticky note */
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for 3D effect */
+    border: 2px solid #d0a878; /* Border color similar to paper edges */
+    overflow: hidden;
+    position: relative;
+    /* Adding a slight rotation to simulate a real sticky note */
+    transform: rotate(0deg);
+    z-index: 1;
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+/* Sticky note corner 'fold' effect */
+.todo-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #e2c6a1; /* Color for the folded corner */
+    transform: rotate(45deg);
+    z-index: 2;
+    
+}
+
+/* Heading */
+h1 {
+    font-family: 'Bebas Neue', sans-serif; /* Bold sans-serif font for headings */
+    font-size: 48px;
+    color: #2c2725; /* Retro burnt orange for a vintage feel */
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 3px; /* Increased letter-spacing for vintage typographical style */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow to create depth */
+}
+
+/* Input container and styles */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Input field with vintage texture and gradient background */
+.new-task-input {
+    width: 64%;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #d26a3d;
+    border-radius: 8px;
+  
+    color: #3b3b3b;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.new-task-input:focus {
+    border-color: #a25237; /* Darker burnt orange on focus */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Button for adding tasks */
+.add-task-btn {
+    width: 24%;
+    padding: 14px;
+    font-size: 18px;
+    background-color: #a25237; /* Retro burnt orange */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1); /* Raised button effect */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-task-btn:hover {
+    background-color: #d26a3d; /* Lighter burnt orange on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.add-task-btn:active {
+    transform: translateY(2px); /* Pressed effect when clicked */
+}
+
+/* To-do list styles */
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* To-do item styles */
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    font-size: 18px;
+    color: #3b3b3b;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.todo-item:hover {
+    background-color: #fafafa; /* Light gray background on hover */
+    transform: scale(1.02); /* Slight scaling effect on hover */
+}
+
+/* Checkbox with vintage design */
+.checkbox {
+    accent-color: #a25237; /* Burnt orange checkbox */
+    cursor: pointer;
+}
+
+/* Label styles for the to-do item */
+.todo-item label {
+    flex-grow: 1;
+    padding-left: 12px;
+    color: #3b3b3b;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    font-family: 'Georgia', serif; /* Vintage serif font for task labels */
+}
+
+/* Strikethrough effect for completed tasks */
+.checkbox:checked + label {
+    text-decoration: line-through;
+    color: #888; /* Muted color for completed tasks */
+}
+
+/* Smooth transition for strikethrough */
+.checkbox:checked + label {
+    transition: all 0.3s ease;
+}
+
+/* Focused checkbox effect */
+.checkbox:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(162, 82, 55, 0.5); /* Vintage greenish focus effect */
+}
